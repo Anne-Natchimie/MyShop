@@ -6,4 +6,5 @@
     @empty
         
     @endforelse
-</div>
+</div> 
+
