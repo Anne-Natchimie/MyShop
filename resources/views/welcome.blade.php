@@ -1,44 +1,38 @@
 @extends('layouts.myshop')
 
-@section("main")
+@section('main')
 
-<div>
+    <div class="masonry-loader masonry-loader-showing">
+        <div class="row products product-thumb-info-list" data-plugin-masonry data-plugin-options="{'layoutMode': 'fitRows'}">
 
-    <h1>Categories</h1>
+            @forelse ($products as $itemProduct)
 
-    <ul>
+            <x-product.card :itemProduct='$itemProduct'/>
 
-        @foreach ($categories as $itemCategory)
+            @empty
+                Pas de produits
+            @endforelse
 
-        <li>
+        </div>
+    </div>
 
-            <a href="{{route('welcome.filtre', $itemCategory)}}">
-            {{$itemCategory->name}}
-            </a>
+    <div>
 
-        </li>
+        <h1>Products</h1>
 
-        @endforeach
+        <ul>
 
-            </ul>
-
-                <h1>Products</h1>
-
-            <ul>
-
-                @foreach ($products as $itemProduct)
-
+            @foreach ($products as $itemProduct)
                 <li>
-                    {{$itemProduct->name}}
-                    <a href="{{route('welcome.detail', $itemProduct)}}">
+                    {{ $itemProduct->name }}
+                    <a href="{{ route('welcome.detail', $itemProduct) }}">
                         Voir plus
                     </a>
                 </li>
+            @endforeach
 
-                @endforeach
+        </ul>
 
-            </ul>
-
-</div>
+    </div>
 
 @endsection
