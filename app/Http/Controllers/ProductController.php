@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -32,28 +34,6 @@ class ProductController extends Controller
         //selectionner 4 produits qui ont la même catégorie qu'un produit aléatoirement
         $products = Product::Where('category_id', $product->category_id)->inRandomOrder()->limit(4)->get();
         return view('detail', compact('product', 'products')); 
-
-    }
-
-    /*
-        Méthode qui permet d'ajouter dans le caddie
-        D'ajouter ou de modifier dans le caddie 
-        Il vérifie si la quantité existe
-        Si la quantité existe il exécute une action
-    */
-
-    public function addToCart(Product $cart)
-    {
-
-        // Vérification du produit dans le panier 
-        // Sélectionner le produit quand il a été ajouté par l'utilisateur 
-        // SELECT * FROM Carts WHERE user_id = "?" AND product_id = $product -> id LIMIT(0, 1) 
-
-        dd($cart);
-
-        $cart = Cart::Where('user_id', Auth::user()->id)
-                        ->Where('product_id', $product->id)
-                        ->limit(1)->get(); 
 
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 
@@ -27,6 +28,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/addtocart/{product}', [CartController::class, 'addToCart'])->name('addtocart'); //Ne peut ajouter dans le panier que les utilisateurs connectés 
+    Route::get('/cart', [CartController::class, 'index'])->name('cart');
+
 });
 
 require __DIR__.'/auth.php';
@@ -37,6 +41,4 @@ Route::get('/', [ProductController::class, 'index'])->name('welcome');
 Route::get('/filtre/{category}', [ProductController::class, 'index'])->name('welcome.filtre'); 
 
 // 
-Route::get('/detail/{product}', [ProductController::class, 'detail'])->name('welcome.detail'); 
-
-Route::get('/addtocart/{product}', [ProductController::class, 'addToCart'])->name('addtocart'); 
+Route::get('/detail/{product}', [ProductController::class, 'detail'])->name('welcome.detail');  
