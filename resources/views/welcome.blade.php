@@ -1,38 +1,44 @@
+@extends('layouts.myshop')
+
+@section("main")
+
 <div>
 
-<h1>Categories</h1>
+    <h1>Categories</h1>
 
-<ul>
+    <ul>
 
-    @foreach ($categories as $itemCategory)
+        @foreach ($categories as $itemCategory)
 
-    <li>
+        <li>
 
-        <a href="{{route('welcome.filtre', $itemCategory)}}">
-        {{$itemCategory->name}}
-        </a>
+            <a href="{{route('welcome.filtre', $itemCategory)}}">
+            {{$itemCategory->name}}
+            </a>
 
-    </li>
+        </li>
 
-    @endforeach
+        @endforeach
 
-</ul>
+            </ul>
 
-<h1>Products</h1>
+                <h1>Products</h1>
 
-<ul>
+            <ul>
 
-    @foreach ($products as $itemProduct)
+                @foreach ($products as $itemProduct)
 
-    <li>
-        {{$itemProduct->name}}
-        <a href="{{route('welcome.detail', $itemProduct)}}">
-            Voir plus
-        </a>
-    </li>
+                <li>
+                    {{$itemProduct->name}}
+                    <a href="{{route('welcome.detail', $itemProduct)}}">
+                        Voir plus
+                    </a>
+                </li>
 
-    @endforeach
+                @endforeach
 
-</ul>
+            </ul>
 
 </div>
+
+@endsection
