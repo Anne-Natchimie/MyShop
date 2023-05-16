@@ -2,16 +2,17 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ProductResource\Pages;
-use App\Filament\Resources\ProductResource\RelationManagers;
-use App\Models\Product;
 use Filament\Forms;
-use Filament\Resources\Form;
-use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
+use App\Models\Product;
+use Filament\Resources\Form;
+use Filament\Resources\Table;
+use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
+use Nuhel\FilamentCroppie\Components\Croppie;
+use App\Filament\Resources\ProductResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\ProductResource\RelationManagers;
 
 class ProductResource extends Resource
 {
@@ -35,8 +36,12 @@ class ProductResource extends Resource
                 Forms\Components\RichEditor::make('description')
                     ->maxLength(65535),
                 Forms\Components\TextInput::make('price')->numeric(),
-                Forms\Components\FileUpload::make('image'),
-            ]);
+
+                Croppie::make('image')
+                    ->enableOpen()->enableDownload()
+                    ->imageResizeTargetWidth('800')
+                    ->imageResizeTargetHeight('800')
+                            ]);
     }
 
     public static function table(Table $table): Table

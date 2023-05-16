@@ -17,12 +17,15 @@ class ProductController extends Controller
         //Lister les produits et les categories et filtrer les categories par les produits
 
         $products = Product::OrderBy('created_at', 'asc')->paginate(10); // liste de mes produits
-        $categories = Category::OrderBy('name', 'asc')->get(); // liste de mes catégories
 
         if ($category != 0) {
             # code...
             $products = Product::Where('category_id', $category)->OrderBy('created_at', 'asc')->paginate(10);
         }
+
+        $categories = Category::OrderBy('name', 'asc')->get(); // liste de mes catégories
+
+        // dd($products) ;
 
         return view('welcome', compact('products', 'categories')); 
 
@@ -33,7 +36,9 @@ class ProductController extends Controller
 
         //selectionner 4 produits qui ont la même catégorie qu'un produit aléatoirement
         $products = Product::Where('category_id', $product->category_id)->inRandomOrder()->limit(4)->get();
-        return view('detail', compact('product', 'products')); 
+        $categories = Category::OrderBy('name', 'asc')->get(); // liste de mes catégories
+
+        return view('detail', compact('product', 'products', 'categories')); 
 
     }
 

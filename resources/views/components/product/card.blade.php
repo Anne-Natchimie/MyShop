@@ -3,12 +3,12 @@
         <div class="product-thumb-info border-0 mb-3">
 
             <div class="product-thumb-info-badges-wrapper">
-<span class="badge badge-ecommerce badge-success">NEW</span>
+            <span class="badge badge-ecommerce badge-success">NEW</span>
 
             </div>
 
             <div class="addtocart-btn-wrapper">
-                <a href="shop-cart.html" class="text-decoration-none addtocart-btn" title="Add to Cart">
+                <a href="{{route('addtocart', $itemProduct)}}" class="text-decoration-none addtocart-btn" title="Add to Cart">
                     <i class="icons icon-bag"></i>
                 </a>
             </div>
@@ -17,13 +17,13 @@
                 QUICK VIEW
             </a>
 
-            <a href="shop-product-sidebar-left.html">
+            <a href="{{route('welcome.detail', $itemProduct)}}">
                 <div class="product-thumb-info-image">
 
                     @if (isset($itemProduct->image))
                         <img alt="" class="img-fluid" src="{{Storage::url($itemProduct->image)}}">
                     @else
-                        <img alt="" class="img-fluid" src="img/products/product-grey-1.jpg">
+                        <img alt="" class="img-fluid" src="/img/noImage.jpg">
                     @endif
 
                 </div>
@@ -31,7 +31,7 @@
         </div>
         <div class="d-flex justify-content-between">
             <div>
-                <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">electronics</a>
+                <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">{{$itemProduct->category->name}}</a>
                 <h3>{{Str::limit($itemProduct->name)}} </h3>
             </div>
             <a href="#" class="text-decoration-none text-color-default text-color-hover-dark text-4"><i class="far fa-heart"></i></a>

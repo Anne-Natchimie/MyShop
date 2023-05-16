@@ -35,10 +35,11 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+// Route pour lister les produits
 Route::get('/', [ProductController::class, 'index'])->name('welcome'); 
 
-// Filtre par category
+// Route pour filtrer les categories
 Route::get('/filtre/{category}', [ProductController::class, 'index'])->name('welcome.filtre'); 
 
-// 
+// Route pour afficher le détail de chaques produits 
 Route::get('/detail/{product}', [ProductController::class, 'detail'])->name('welcome.detail');  

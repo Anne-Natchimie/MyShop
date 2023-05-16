@@ -50,7 +50,7 @@
 							<div class="header-column w-100">
 								<div class="header-row justify-content-between">
 									<div class="header-logo z-index-2 col-lg-2 px-0">
-										<a href="index.html">
+										<a href="{{route('welcome')}}">
 											<img alt="Porto" width="100" height="48" data-sticky-width="82" data-sticky-height="40" data-sticky-top="84" src="/img/logo-default-slim.png">
 										</a>
 									</div>
@@ -113,7 +113,7 @@
 										</ul>
 										<div class="header-nav-features ps-0 ms-1">
 											<div class="header-nav-feature header-nav-features-cart header-nav-features-cart-big d-inline-flex top-2 ms-2">
-												<a href="#" class="header-nav-features-toggle" aria-label="">
+												<a href="{{route('cart')}}" class="header-nav-features-toggle" aria-label="">
 													<img src="/img/icons/icon-cart-big.svg" height="30" alt="" class="header-nav-top-icon-img">
 													<span class="cart-info">
 														<span class="cart-qty">1</span>
@@ -128,7 +128,7 @@
 																	<a href="#">Camera X1000 </a>
 																</p>
 																<p class="qty-price">
-																	 1X <span class="price">$890</span>
+																	1X <span class="price">$890</span>
 																</p>
 																<a href="#" title="Remove This Item" class="btn-remove"><i class="fas fa-times"></i></a>
 															</div>

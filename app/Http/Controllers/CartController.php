@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +16,17 @@ class CartController extends Controller
     {
         # code...
         $carts = Cart::Where('user_id', Auth::user()->id)->get(); 
-        return view('cart', compact('carts')); 
+        $products = Product::OrderBy('created_at', 'asc')->paginate(10);
+        $categories = Category::OrderBy('name', 'asc')->get(); // liste de mes catégories
+        $somme = 0; 
+
+        foreach ($carts as $itemCart) {
+
+            # code...
+            $somme = ($itemCart->quantity * $itemCart->price) + $somme ; 
+        }
+
+        return view('cart', compact('carts', 'products', 'categories', 'somme')); 
     }
 
     

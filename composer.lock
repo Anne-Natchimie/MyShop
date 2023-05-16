@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "16a45369ffc95e5aa762b45849440e03",
+    "content-hash": "12f41ee5998122a09fc1d8ba4743358b",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -3384,6 +3384,58 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v4.15.4"
             },
             "time": "2023-03-05T19:49:14+00:00"
+        },
+        {
+            "name": "nuhel/filament-croppie",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Nuhel/FilamentCroppie.git",
+                "reference": "b3f4fc1a79edb21e74366be529c6e0575eb74c99"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Nuhel/FilamentCroppie/zipball/b3f4fc1a79edb21e74366be529c6e0575eb74c99",
+                "reference": "b3f4fc1a79edb21e74366be529c6e0575eb74c99",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^2.0",
+                "php": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Nuhel\\FilamentCroppie\\FilamentCroppieServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nuhel\\FilamentCroppie\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nuhel",
+                    "email": "nuheljft@gmail.com"
+                }
+            ],
+            "keywords": [
+                "filament-croppie",
+                "laravel",
+                "nuhel"
+            ],
+            "support": {
+                "issues": "https://github.com/Nuhel/FilamentCroppie/issues",
+                "source": "https://github.com/Nuhel/FilamentCroppie/tree/1.1.1"
+            },
+            "time": "2023-03-18T06:43:18+00:00"
         },
         {
             "name": "nunomaduro/termwind",
